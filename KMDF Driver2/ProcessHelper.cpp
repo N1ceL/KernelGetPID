@@ -46,11 +46,11 @@ INL NTSTATUS ProcessHelper::Init()
 }
 
 
-//-----------------------------------------------------------------------------
+/-----------------------------------------------------------------------------
 // Get
 //-----------------------------------------------------------------------------
 
-extern NTSTATUS ProcessHelper::GetInfo(IN const CHAR* szProcessName, OUT PEPROCESS* pProcessInfo)
+NTSTATUS ProcessHelper::GetInfo(IN const CHAR* szProcessName, OUT PEPROCESS* pProcessInfo)
 {
 	PEPROCESS SystemProcess = PsInitialSystemProcess;
 	PEPROCESS CurrentProcess = SystemProcess;
@@ -74,7 +74,7 @@ extern NTSTATUS ProcessHelper::GetInfo(IN const CHAR* szProcessName, OUT PEPROCE
 	return STATUS_NOT_FOUND;
 }
 
-extern UINT ProcessHelper::GetID(IN const CHAR* szProcessName)
+UINT ProcessHelper::GetID(IN const CHAR* szProcessName)
 {
 	PEPROCESS SystemProcess = PsInitialSystemProcess;
 	PEPROCESS CurrentProcess = SystemProcess;
