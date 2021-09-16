@@ -31,7 +31,7 @@ INL NTSTATUS ProcessHelper::Init()
 		if (!OffsetImageFileName && !OffsetActiveThreads)
 		{
 			if (*(UINT64*)((UINT64)SystemProcess + i) > 0x0000400000000000 && *(UINT64*)((UINT64)SystemProcess + i) < 0x0000800000000000 && // 0x00006D6574737953 always, but better to make range
-				*(UINT64*)((UINT64)SystemProcess + i + 0x48) > 0 && *(UINT64*)((UINT64)SystemProcess + i + 0x48) < 256) // 50 ~ 70 in general
+				*(UINT64*)((UINT64)SystemProcess + i + 0x48) > 0 && *(UINT64*)((UINT64)SystemProcess + i + 0x48) < 0xFFF) // 80 ~ 300 in general
 			{
 				OffsetImageFileName = i;
 				OffsetActiveThreads = i + 0x48;
